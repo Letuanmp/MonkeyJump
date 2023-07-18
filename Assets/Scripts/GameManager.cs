@@ -26,6 +26,12 @@ public class GameManager : MonoBehaviour
         player = FindAnyObjectByType<Player>();
         spawner = FindAnyObjectByType<Spawner>();  
     }
+    private void Pause()
+    {
+        
+
+        Time.timeScale = 0f; // Đặt Time.timeScale thành 0
+    }
     public void NewGame()
     {
         player.gameObject.SetActive(true);
@@ -33,8 +39,7 @@ public class GameManager : MonoBehaviour
     }
     public void GameOver()
     {
-        player.gameObject.SetActive(false);
-        spawner.gameObject.SetActive(false);
+        Pause();
     }
 
     public void Point()

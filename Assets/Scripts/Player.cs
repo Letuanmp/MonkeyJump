@@ -15,11 +15,13 @@ public class Player : MonoBehaviour
     private float maxRight=4.6f;
     private Animator aim;
     private Touch touch;
+
+    AudioManager audioManager;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();   
         aim = GetComponent<Animator>();    
-        
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
     private void Start()
     {
@@ -36,10 +38,13 @@ public class Player : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.LeftArrow) && !isMoving && transform.position.x > maxLeft )
             {
                 LeftArrow();
+                audioManager.PlaySFX(audioManager.jump);
             }
             if (Input.GetKeyDown(KeyCode.RightArrow) && !isMoving && transform.position.x < maxRight)
             {
                RightArrow();
+               audioManager.PlaySFX(audioManager.jump);
+
             }
         }
         if(rb.position == targetPos)
@@ -56,6 +61,7 @@ public class Player : MonoBehaviour
             targetPos = new Vector2(rb.position.x - xPlus, transform.position.y);
             transform.localScale = new Vector3(0.75f, 0.75f, 1f);
             isMoving = true;
+            audioManager.PlaySFX(audioManager.jump);
 
         }
     }
@@ -67,6 +73,8 @@ public class Player : MonoBehaviour
             targetPos = new Vector2(rb.position.x + xPlus, transform.position.y);
             transform.localScale = new Vector3(-0.75f, 0.75f, 1f);
             isMoving = true;
+            audioManager.PlaySFX(audioManager.jump);
+
         }
 
     }
@@ -82,12 +90,17 @@ public class Player : MonoBehaviour
             {
                 // Player chết
                 Destroy(gameObject);
+                audioManager.PlaySFX(audioManager.die);
+                FindObjectOfType<GameManager>().GameOver();
+
             }
             else
             {
                 // Spawner chết
                 Destroy(collision.gameObject);
                 FindObjectOfType<GameManager>().SpawnerDeath();
+                audioManager.PlaySFX(audioManager.kill);
+
             }
         }
         if (collision.gameObject.CompareTag("Bomb"))
@@ -97,6 +110,10 @@ public class Player : MonoBehaviour
             aim.SetBool("Bomb", true);
             if(Bomb)
             Instantiate(Bomb,transform.position,Quaternion.identity);
+            audioManager.PlaySFX(audioManager.bomb);
+            FindObjectOfType<GameManager>().GameOver();
+
+
         }
     }
     private void HandleTouchInput()
