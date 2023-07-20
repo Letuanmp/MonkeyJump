@@ -38,10 +38,10 @@ public class GameManager : MonoBehaviour
     }
     public void NewGame()
     {
-        gameOver.SetActive(false);
-        newGame.SetActive(false);
-        resetGame.SetActive(false);
-        Time.timeScale = 1f;
+        //gameOver.SetActive(false);
+        //newGame.SetActive(false);
+        //resetGame.SetActive(false);
+        //Time.timeScale = 1f;
     }
     private IEnumerator Wait()
     {

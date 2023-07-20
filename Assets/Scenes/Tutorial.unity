@@ -448,6 +448,7 @@ MonoBehaviour:
   - prefab: {fileID: 4670280306551822613, guid: 7e75db61a27ec0743ad55bbdbd419e88, type: 3}
     spawnChance: 0.33
   runTime: 8
+  respawnTime: 1
   minSpawnrate: 1
   maxSpawnrate: 8
 --- !u!4 &241986521
@@ -1213,6 +1214,7 @@ MonoBehaviour:
   - prefab: {fileID: 4670280306551822613, guid: 7e75db61a27ec0743ad55bbdbd419e88, type: 3}
     spawnChance: 0.33
   runTime: 10
+  respawnTime: 1
   minSpawnrate: 1
   maxSpawnrate: 8
 --- !u!1 &1109120572
@@ -1332,6 +1334,7 @@ MonoBehaviour:
   - prefab: {fileID: 921222113086764722, guid: 5b7f8a3626fc0c74e83e73b65a301a35, type: 3}
     spawnChance: 0.2
   runTime: 15
+  respawnTime: 1
   minSpawnrate: 1
   maxSpawnrate: 9
 --- !u!4 &1156632567
@@ -1538,6 +1541,7 @@ MonoBehaviour:
   - prefab: {fileID: 921222113086764722, guid: 5b7f8a3626fc0c74e83e73b65a301a35, type: 3}
     spawnChance: 0.2
   runTime: 15
+  respawnTime: 1
   minSpawnrate: 1
   maxSpawnrate: 9
 --- !u!4 &1263888517
@@ -1590,6 +1594,7 @@ MonoBehaviour:
   - prefab: {fileID: 921222113086764722, guid: 5b7f8a3626fc0c74e83e73b65a301a35, type: 3}
     spawnChance: 0.2
   runTime: 13
+  respawnTime: 1
   minSpawnrate: 1
   maxSpawnrate: 10
 --- !u!4 &1294221367
@@ -2325,6 +2330,7 @@ MonoBehaviour:
   - prefab: {fileID: 4670280306551822613, guid: 7e75db61a27ec0743ad55bbdbd419e88, type: 3}
     spawnChance: 0.33
   runTime: 10
+  respawnTime: 1
   minSpawnrate: 1
   maxSpawnrate: 8
 --- !u!1 &1600625086
@@ -2906,6 +2912,7 @@ MonoBehaviour:
   - prefab: {fileID: 4670280306551822613, guid: 7e75db61a27ec0743ad55bbdbd419e88, type: 3}
     spawnChance: 0.33
   runTime: 8
+  respawnTime: 1
   minSpawnrate: 1
   maxSpawnrate: 8
 --- !u!1 &1816025994
@@ -3151,6 +3158,7 @@ MonoBehaviour:
   - prefab: {fileID: 921222113086764722, guid: 5b7f8a3626fc0c74e83e73b65a301a35, type: 3}
     spawnChance: 0.2
   runTime: 13
+  respawnTime: 1
   minSpawnrate: 1
   maxSpawnrate: 10
 --- !u!4 &1922547425

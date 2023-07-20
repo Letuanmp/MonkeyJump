@@ -16,6 +16,7 @@ public class Spawner : MonoBehaviour
     }
     public SpawnableObject[] objects;
     public float runTime=4f;
+    public float respawnTime = 1.0f;
     public float minSpawnrate=1f;
 
     public float maxSpawnrate=6f;
@@ -48,8 +49,11 @@ public class Spawner : MonoBehaviour
                 break;
         }
 
-        Invoke(nameof(Spawn),runTime);
+        Invoke(nameof(Spawn), runTime);
     }
+
+
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -68,6 +72,7 @@ public class Spawner : MonoBehaviour
             {
                 // Player chết
                 Destroy(collision.gameObject);
+                
             } 
         }
       

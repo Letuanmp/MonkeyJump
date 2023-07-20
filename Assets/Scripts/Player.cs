@@ -92,7 +92,7 @@ public class Player : MonoBehaviour
                 Destroy(gameObject);
                 audioManager.PlaySFX(audioManager.die);
                 FindObjectOfType<GameManager>().GameOver();
-
+                
             }
             else
             {
