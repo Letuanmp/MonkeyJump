@@ -20,9 +20,14 @@ public class AudioManager : MonoBehaviour
         musicSource.clip = background;
         musicSource.Play();
     }
+    public void Mute()
+    {
+        musicSource.clip = background;
+        musicSource.Stop();
+    }
 
     public void PlaySFX(AudioClip clip)
     {
-        sfxSource.PlayOneShot(clip);    
+        sfxSource.PlayOneShot(clip);
     }
 }

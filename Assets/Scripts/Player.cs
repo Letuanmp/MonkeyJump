@@ -107,7 +107,7 @@ public class Player : MonoBehaviour
         {
             Destroy(collision.gameObject);
             Destroy(gameObject);
-            aim.SetBool("Bomb", true);
+            aim.SetBool("Bomb", true);  
             if(Bomb)
             Instantiate(Bomb,transform.position,Quaternion.identity);
             audioManager.PlaySFX(audioManager.bomb);
@@ -116,6 +116,15 @@ public class Player : MonoBehaviour
 
         }
     }
+    private void OnEnable()
+    {
+        Vector3 position = transform.position;
+        position.y = 0f;
+        position.x = -1.52f;
+        transform.position = position;
+      
+    }
+
     private void HandleTouchInput()
     {
         if (Input.touchCount > 0)

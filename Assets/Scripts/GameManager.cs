@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
@@ -38,10 +39,13 @@ public class GameManager : MonoBehaviour
     }
     public void NewGame()
     {
-        //gameOver.SetActive(false);
-        //newGame.SetActive(false);
-        //resetGame.SetActive(false);
-        //Time.timeScale = 1f;
+        gameOver.SetActive(false);
+        newGame.SetActive(false);
+        resetGame.SetActive(false);
+        Time.timeScale = 1f;
+
+        // Reset the current scene
+        //RestartCurrentScene();
     }
     private IEnumerator Wait()
     {
@@ -50,8 +54,15 @@ public class GameManager : MonoBehaviour
     }
     public void Back()
     {
-        Application.LoadLevel("PlayScreen");
+        SceneManager.LoadScene("PlayScreen");
+        Time.timeScale = 1f;
     }
+
+    //public void RestartCurrentScene()
+    //{
+    //    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    //    Time.timeScale = 1f;
+    //}
     public void GameOver()
     {
         Wait();
@@ -59,6 +70,8 @@ public class GameManager : MonoBehaviour
         gameOver.SetActive( true);
         newGame.SetActive( true);
         resetGame.SetActive( true);
+        FindObjectOfType<AudioManager>().Mute();
+        
     }
 
     public void Point()
