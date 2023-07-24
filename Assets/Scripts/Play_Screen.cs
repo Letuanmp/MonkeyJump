@@ -8,6 +8,7 @@ public class Play_Screen : MonoBehaviour
     public void Tutorial()
     {
         SceneManager.LoadScene("Tutorial");
+        Time.timeScale = 1.0f;  
     }
 
     public void Challenge()

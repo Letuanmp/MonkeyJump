@@ -10,6 +10,7 @@ public class Coutdown : MonoBehaviour
     [SerializeField] Image timeImage;
     [SerializeField] Text timeText;
     [SerializeField] float duration, currenTime;
+  
 
     private void Start()
     {
@@ -28,6 +29,7 @@ public class Coutdown : MonoBehaviour
             timeText.text = currenTime.ToString();
             yield return new WaitForSeconds(1f);
             currenTime--;
+           
         }
        
         OpenE();
@@ -40,4 +42,6 @@ public class Coutdown : MonoBehaviour
         FindObjectOfType<GameManager>().GameOver();
       
     }
+
+
 }
