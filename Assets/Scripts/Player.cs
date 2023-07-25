@@ -62,6 +62,7 @@ public class Player : MonoBehaviour
             transform.localScale = new Vector3(0.75f, 0.75f, 1f);
             isMoving = true;
             audioManager.PlaySFX(audioManager.jump);
+            aim.SetBool("grounded", true);
 
         }
     }
@@ -74,6 +75,7 @@ public class Player : MonoBehaviour
             transform.localScale = new Vector3(-0.75f, 0.75f, 1f);
             isMoving = true;
             audioManager.PlaySFX(audioManager.jump);
+            aim.SetBool("grounded", true);
 
         }
 
