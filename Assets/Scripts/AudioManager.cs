@@ -9,7 +9,7 @@ public class AudioManager : MonoBehaviour
 
 
     public AudioClip background;
-    public AudioClip jump;
+    public AudioClip tutorial;
     public AudioClip kill;
     public AudioClip die;
     public AudioClip bomb;

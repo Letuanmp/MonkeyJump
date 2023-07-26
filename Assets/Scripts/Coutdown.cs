@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,7 +10,7 @@ public class Coutdown : MonoBehaviour
     [SerializeField] Image timeImage;
     [SerializeField] Text timeText;
     [SerializeField] float duration, currenTime;
-  
+    private bool isRunning;
 
     private void Start()
     {
@@ -18,9 +18,18 @@ public class Coutdown : MonoBehaviour
         currenTime = duration;
         timeText.text = currenTime.ToString();
         StartCoroutine(TimeEnd());
-       
+
     }
 
+    public void Update()
+    {
+        if (FindObjectOfType<Tutorial>().isRight && !isRunning)
+        {
+            StartCoroutine(TimeEnd());
+            isRunning = true;
+        }
+
+    }
     IEnumerator TimeEnd()
     {
         while (currenTime >= 0)

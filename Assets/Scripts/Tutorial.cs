@@ -6,45 +6,59 @@ using UnityEngine.UI;
 
 public class Tutorial : MonoBehaviour
 {
-    public bool isPause=true;
- 
- 
+    public bool isRight=false;
+
+    public GameObject spawner;
     public GameObject textTutorial;
     public GameObject arrowLeft;
     public GameObject arrowRight;
     public Button btnLeft;
     public Button btnRight;
+    public GameObject timer;
+    AudioManager audioManager;
+    private bool _isPopupFirst;
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
     private void Start()
     {
-        textTutorial = GetComponent<GameObject>();
+
+        arrowLeft.SetActive(true);
+        arrowRight.SetActive(false);
+        spawner.SetActive(false);
+        timer.SetActive(false) ;
+        audioManager.PlaySFX(audioManager.tutorial);
     }
 
     void Update()
     {
-        if (isPause)
+
+
+
+        if (!_isPopupFirst)
         {
-            Time.timeScale = 0f;
-
-        
-           // textTutorial.SetActive(true);
-         
-            arrowLeft.SetActive(true);
-
-
-            if (Input.GetKeyDown(KeyCode.LeftArrow) || btnLeft != null && EventSystem.current.currentSelectedGameObject == btnLeft.gameObject)
+            if (Input.GetKeyDown(KeyCode.LeftArrow) || (btnLeft != null && EventSystem.current.currentSelectedGameObject == btnLeft.gameObject))
             {
-                FindObjectOfType<Player>().LeftArrow();
                 arrowLeft.SetActive(false);
                 arrowRight.SetActive(true);
-
-
+                _isPopupFirst = true;
 
             }
-            if (Input.GetKeyDown(KeyCode.LeftArrow) || btnLeft != null && EventSystem.current.currentSelectedGameObject == btnLeft.gameObject)
+        }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.RightArrow) || (btnRight != null && EventSystem.current.currentSelectedGameObject == btnRight.gameObject))
             {
+                timer.SetActive(true);
                 arrowRight.SetActive(false);
-
+                arrowLeft.SetActive(false);
+                textTutorial.SetActive(false);
+                spawner.SetActive(true);
+                isRight = true;
             }
-         }
+
+        }
+
     }
 }

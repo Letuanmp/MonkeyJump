@@ -38,12 +38,10 @@ public class Player : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.LeftArrow) && !isMoving && transform.position.x > maxLeft )
             {
                 LeftArrow();
-                audioManager.PlaySFX(audioManager.jump);
             }
             if (Input.GetKeyDown(KeyCode.RightArrow) && !isMoving && transform.position.x < maxRight)
             {
                RightArrow();
-               audioManager.PlaySFX(audioManager.jump);
 
             }
         }
@@ -61,7 +59,6 @@ public class Player : MonoBehaviour
             targetPos = new Vector2(rb.position.x - xPlus, transform.position.y);
             transform.localScale = new Vector3(0.75f, 0.75f, 1f);
             isMoving = true;
-            audioManager.PlaySFX(audioManager.jump);
             aim.SetBool("grounded", true);
 
         }
@@ -74,7 +71,6 @@ public class Player : MonoBehaviour
             targetPos = new Vector2(rb.position.x + xPlus, transform.position.y);
             transform.localScale = new Vector3(-0.75f, 0.75f, 1f);
             isMoving = true;
-            audioManager.PlaySFX(audioManager.jump);
             aim.SetBool("grounded", true);
 
         }
